@@ -1,0 +1,35 @@
+{
+  "name": "api-example",
+  "version": "1.0.0",
+  "description": "API example tests for your enjoyment...",
+  "jest": {
+    "testMatch": [
+      "**/tests/**/*.[jt]s?(x)"
+    ],
+    "testTimeout": 9000,
+    "verbose": true
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/jest",
+    "watch": "./node_modules/.bin/jest --watchAll"
+  },
+  "keywords": [
+    "api",
+    "test",
+    "es6",
+    "jest"
+  ],
+  "author": "brine",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.11.5",
+    "axios": "^0.20.0",
+    "babel-jest": "^26.3.0",
+    "jest": "^26.4.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
+    "@babel/preset-env": "^7.11.0"
+  }
+}
