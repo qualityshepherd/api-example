@@ -13,5 +13,11 @@ describe('GET /posts', () => {
     expect(res.status).toBe(200)
     expect(res.data.length).toBeGreaterThan(1)
   })
+
+  test('should error with nonexistent id', async () => {
+    const res = await api.get('/posts/invalid_id')
+
+    expect(res.status).toBe(404)
+  })
 })
 
