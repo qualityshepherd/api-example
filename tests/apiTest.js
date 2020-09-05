@@ -21,3 +21,13 @@ describe('GET /posts', () => {
   })
 })
 
+describe('POST /posts', () => {
+  test('should create a new post', async () => {
+    const response = await api.post('/posts', body)
+
+    expect(response.status).toBe(201)
+    expect(response.data.id).toBeDefined() // the app does not update but this should exist
+    expect(response.data.body).toBe(body.body)
+    // expect(response.data.title).toBe(body.title) // bug???
+  })
+})
