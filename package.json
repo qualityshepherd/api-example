@@ -11,7 +11,8 @@
   },
   "scripts": {
     "test": "./node_modules/.bin/jest",
-    "watch": "./node_modules/.bin/jest --watchAll"
+    "watch": "./node_modules/.bin/jest --watchAll",
+    "slow": "./node_modules/.bin/jest -i"
   },
   "keywords": [
     "api",

@@ -6,7 +6,6 @@ let data = {
   "body": "blah, blah, blah..."
 }
 
-
 describe('POST /posts', () => {
   test('should create a new post', async () => {
     const response = await api.post('/posts', data)

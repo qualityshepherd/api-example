@@ -1,6 +1,5 @@
 import api from '../lib/apiModule'
 
-
 describe('GET /posts', () => {
   test('should get all posts', async () => {
     const response = await api.get('/posts')
