@@ -1,6 +1,6 @@
 import api from '../lib/apiModule'
 
-const body = {
+let body = {
   "userId": 1,
   "title": "I Like Eggs!",
   "body": "blah, blah, blah..."
@@ -28,6 +28,16 @@ describe('POST /posts', () => {
     expect(response.status).toBe(201)
     expect(response.data.id).toBeDefined() // the app does not update but this should exist
     expect(response.data.body).toBe(body.body)
-    // expect(response.data.title).toBe(body.title) // bug???
+  })
+})
+
+describe('PUT /posts/{id}', () => {
+  test('should update a post', async () => {
+    body.body = "body was updated!"
+    const response = await api.put('/posts/42', body)
+
+    expect(response.status).toBe(200)
+    expect(response.data.body).toBe(body.body)
+    expect(response.data.id).toBe(42)
   })
 })
