@@ -11,7 +11,7 @@ Example API tests that:
 
 ## Setup
 > assumes [Git](https://git-scm.com/downloads) and [NodeJS](https://nodejs.org/en) are installed
-  - clone 'em: `git@github.com:qualityshepherd/api-example.git`
+  - clone 'em: `git clone git@github.com:qualityshepherd/api-example.git`
   - `cd api-example`
   - install dependencies: `npm i`
 
