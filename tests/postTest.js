@@ -1,9 +1,16 @@
 import api from '../lib/apiModule'
 
-let data = {
+const data = {
   "userId": 1,
   "title": "I Like Eggs!",
   "body": "blah, blah, blah..."
+}
+
+const config = {
+  headers: {
+    'Accept': 'invalid',
+    'Content-Type': 'wackiness'
+  }
 }
 
 describe('POST /posts', () => {
@@ -14,5 +21,13 @@ describe('POST /posts', () => {
     expect(response.data.id).toBeDefined() // the app does not update but this should exist
     expect(response.data.body).toBe(data.body)
     expect(response.data.title).toBe(data.title)
+  })
+
+  // skipping due to an axios bug
+  // https://github.com/axios/axios/issues/2623
+  test.skip('should error on invalid payload', async () => {
+    const response = await api.post('/posts', data, config)
+
+    expect(response.status).toBe(500)
   })
 })
