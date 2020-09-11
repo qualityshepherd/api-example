@@ -8,6 +8,13 @@ describe('GET /posts', () => {
     expect(response.data.length).toBeGreaterThan(1)
   })
 
+  test('response time should be under 1 second', async () => {
+    const response = await api.get('/posts')
+
+    expect(response.status).toBe(200)
+    expect((response.headers.endTime - response.config.headers.startTime)).toBeLessThan(10000)
+  })
+
   test('should get a single post', async () => {
     const response = await api.get('/posts/42')
 

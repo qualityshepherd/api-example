@@ -23,6 +23,13 @@ describe('POST /posts', () => {
     expect(response.data.title).toBe(data.title)
   })
 
+  test('response time should be less than 1 second', async () => {
+    const response = await api.post('/posts', data)
+
+    expect(response.status).toBe(201)
+    expect((response.headers.endTime - response.config.headers.startTime)).toBeLessThan(10000)
+  })
+
   // skipping due to an axios bug
   // https://github.com/axios/axios/issues/2623
   test.skip('should error on invalid payload', async () => {

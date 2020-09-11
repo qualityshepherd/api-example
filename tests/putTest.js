@@ -16,5 +16,14 @@ describe('PUT /posts/{id}', () => {
     expect(response.data.id).toBe(42)
     expect(response.data.title).toBe(data.title)
   })
+
+  test('response time should be less than 1 second', async () => {
+    data.body = "how time flies..."
+    const response = await api.put('/posts/42', data)
+
+    expect(response.status).toBe(200)
+    expect(response.data.body).toBe(data.body)
+    expect((response.headers.endTime - response.config.headers.startTime)).toBeLessThan(10000)
+  })
 })
 
